@@ -14,11 +14,9 @@ public class GreedyAlgorithm {
 		BinaryTreeNode<Integer> temp;
 		for (int i = 0; i < array.length; i++) {
 			temp = new BinaryTreeNode<Integer>();
-			temp.setLeft(heap.deleteMin());
-			temp.setRight(heap.deleteMin());
 			temp.setData(temp.getLeft().getData() + temp.getRight().getData());
 			heap.insert(temp.getData());
 		}
-		return temp;
+		return null;
 	}
 }
