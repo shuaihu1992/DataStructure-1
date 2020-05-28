@@ -53,6 +53,6 @@ public class GreedyPackage {
 
 	public static void main(String [] args){
 		GreedyPackage greedyPackage = new GreedyPackage();
-		greedyPackage.packageGreedy(greedyPackage.MAX_WEIGHT, greedyPackage.weights, greedyPackage.values);;
+		greedyPackage.packageGreedy(greedyPackage.MAX_WEIGHT, greedyPackage.weights, greedyPackage.values);
 	}
 }
