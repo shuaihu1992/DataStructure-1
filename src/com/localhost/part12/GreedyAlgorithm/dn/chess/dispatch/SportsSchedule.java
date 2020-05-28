@@ -2,18 +2,24 @@ package com.localhost.part12.GreedyAlgorithm.dn.chess.dispatch;
 
 public class SportsSchedule {
 	public void scheduleTable(int[][] table,int n){
+		System.out.println(n);
+
 		if(n == 1){
 			table[0][0] = 1;
+			System.out.println(n);
 		}else{
 			//填充左上区域矩阵
 			int m = n/2;
+			System.out.println("A"+m);
 			scheduleTable(table, m);
+
 			//填充右上区域矩阵
 			for(int i = 0;i<m;i++){
 				for(int j = m;j<n;j++){
 					table[i][j] = table[i][j-m]+m;
 				}
 			}
+			System.out.println("B"+m);
 
 			//填充左下区域矩阵
 			for(int i = m;i<n;i++){
@@ -27,6 +33,8 @@ public class SportsSchedule {
 					table[i][j] = table[i-m][j-m];
 				}
 			}
+			System.out.println("C"+m);
+
 		}
 	}
 
