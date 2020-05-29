@@ -50,7 +50,7 @@ public class ChessBoradProblem {
 			board[leftRow+subSize][leftCol+subSize-1] = n;
 			ChessBoard(leftRow+subSize, leftCol+subSize-1, leftRow+subSize, leftCol, subSize);
 		}
-
+		printResult();
 		//特殊点在右下角
 		if(specialRow>=leftRow+subSize&&specialCol>=leftCol+subSize){
 			ChessBoard(specialRow, specialCol, leftRow+subSize, leftCol+subSize, subSize);
@@ -75,8 +75,8 @@ public class ChessBoradProblem {
 	}
 	public static void main(String[] args){
 		int N = 8;
-		int specialRow = 0;
-		int specialCol = 1;
+		int specialRow = 6;
+		int specialCol = 7;
 		ChessBoradProblem boradProblem = new ChessBoradProblem(specialRow, specialCol, N);
 		boradProblem.printBoard(specialRow, specialCol, N);
 	}
