@@ -9,7 +9,7 @@ public class Test {
 
     public static void BubbleSortTest() {
 
-        Sort.bubbleSort(array);
+        Sort.insertionSort(array);
         for (int i : array) {
             System.out.print(i + " ");
         }
@@ -43,7 +43,28 @@ public class Test {
         }
     }
 
+    public static void insertionSort() {
+        // 获取数组元素个数
+        int n = array.length;
+        // 临时变量
+        int temp;
+        // 有序序列的循环变量
+        int j;
+        for (int i = 1; i < n; i++) {
+            // 获取输入数据
+            temp = array[i];
+            j = i;
+            // 排序
+            while (j >= 1 && (array[j - 1] > temp)) {
+                array[j] = array[j - 1];
+                j--;
+            }
+            // 将数据放入有序序列
+            array[j] = temp;
+        }
+    }
+
     public static void main(String[] args) {
-        BubbleSortTest();
+        insertionSort();
     }
 }
