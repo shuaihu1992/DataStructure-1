@@ -2,12 +2,13 @@ package com.localhost.part08.Sort.dn1.sort;
 
 public class HeerSort {
 	public static void main(String[] args){
-		int [] a = {49,38,44,2,0,7,28,1,-9,7,2,3,8,20,14,88,56,-8,-33,5,23,12,99,76};
+		int[] a = {6,44,11,3,9,55,10,5};
 		int d = a.length;//默认增量是8
 		while(true){
 			d = d/2;
 			System.out.println("d:"+d);
 			for(int i = 0;i<d;i++){
+
 				for(int j = i;j+d<a.length;j+=d){
 					for(int n = i;n+d<a.length;n+=d){
 						int tmp;
@@ -17,6 +18,7 @@ public class HeerSort {
 							a[n+d] = tmp;
 						}
 					}
+					System.out.println("");
 
 				}
 			}
