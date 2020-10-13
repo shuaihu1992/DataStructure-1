@@ -5,7 +5,7 @@ import com.localhost.part04.queue.LinkListQueue;
 
 /**
  * 访问树中所有节点的过程叫作树遍历。
- * 
+ *
  * 遍历分类
  * 遍历分类可以根据当前节点被访问的顺序来划分
  * 当前节点用D表示
@@ -17,7 +17,7 @@ import com.localhost.part04.queue.LinkListQueue;
  * 还有一种遍历方法，叫作层序遍历(level order traversal)，在该遍历中，所有深度为d的节点要在深度d+1的节点之前进行处理。
  *
  * 							          二叉树
- * 
+ *
  * 								 1
  * 								/ \
  * 							   2   3
@@ -25,7 +25,7 @@ import com.localhost.part04.queue.LinkListQueue;
  * 							 4  5 6  7
  */
 public class BinaryTreeTraversal<AnyType> {
-	
+
 	public static void main(String[] args) {
 		// 创建二叉树节点
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>();
@@ -36,7 +36,7 @@ public class BinaryTreeTraversal<AnyType> {
 		BinaryTreeNode<Integer> btn5 = new BinaryTreeNode<Integer>(5);
 		BinaryTreeNode<Integer> btn6 = new BinaryTreeNode<Integer>(6);
 		BinaryTreeNode<Integer> btn7 = new BinaryTreeNode<Integer>(7);
-		
+
 		// 组成二叉树
 		btn1.setLeft(btn2);
 		btn1.setRight(btn3);
@@ -44,18 +44,18 @@ public class BinaryTreeTraversal<AnyType> {
 		btn2.setRight(btn5);
 		btn3.setLeft(btn6);
 		btn3.setRight(btn7);
-		
+
 		// 设置二叉树根节点
 		root = btn1;
-		
+
 		// 测试递归遍历
 		testTraversal(root);
-		
+
 		// 测试非递归遍历
 		testNoTraversal(root);
 
 	}
-	
+
 	/**
 	 * 测试非递归遍历
 	 * @param root 二叉树根节点
@@ -72,12 +72,12 @@ public class BinaryTreeTraversal<AnyType> {
 		btt.postOrderNonRecursive(root);
 		System.out.println();
 	}
-	/*	
- 	非递归前序遍历:1 2 4 5 3 6 7 
-	非递归中序遍历:4 2 5 1 6 3 7 
-	非递归后序遍历:4 5 2 6 7 3 1 
+	/*
+ 	非递归前序遍历:1 2 4 5 3 6 7
+	非递归中序遍历:4 2 5 1 6 3 7
+	非递归后序遍历:4 5 2 6 7 3 1
 	*/
-	
+
 	/**
 	 * 测试递归遍历
 	 * @param root 二叉树根节点
@@ -98,12 +98,12 @@ public class BinaryTreeTraversal<AnyType> {
 		System.out.println();
 	}
 	/*
-	前序遍历:1 2 4 5 3 6 7 
-	中序遍历:4 2 5 1 6 3 7 
-	后序遍历:4 5 2 6 7 3 1 
-	层序遍历:1 2 3 4 5 6 7 
+	前序遍历:1 2 4 5 3 6 7
+	中序遍历:4 2 5 1 6 3 7
+	后序遍历:4 5 2 6 7 3 1
+	层序遍历:1 2 3 4 5 6 7
 	*/
-	
+
 	/**
 	 * 前序遍历
 	 * 1.访问根结点
@@ -118,7 +118,7 @@ public class BinaryTreeTraversal<AnyType> {
 			preOrder(root.getRight());
 		}
 	}
-	
+
 	/**
 	 * 中序遍历
 	 * 1.按前序遍历方式遍历左子树
@@ -133,7 +133,7 @@ public class BinaryTreeTraversal<AnyType> {
 			inOrder(root.getRight());
 		}
 	}
-	
+
 	/**
 	 * 后序遍历
 	 * 1.按前序遍历方式遍历左子树
@@ -148,7 +148,7 @@ public class BinaryTreeTraversal<AnyType> {
 			System.out.print(root.getData() + " ");
 		}
 	}
-	
+
 	/**
 	 * 层序遍历
 	 * 1.访问根节点
@@ -176,7 +176,7 @@ public class BinaryTreeTraversal<AnyType> {
 			}
 		}
 	}
-	
+
 	/**
 	 * 非递归前序遍历
 	 * 首先处理当前节点，在遍历左子树之前，把当前节点保留到栈中，当遍历完左子树后，将该元素出栈，然后找到其右子树进行遍历。持续该过程直到栈为空。
@@ -203,7 +203,7 @@ public class BinaryTreeTraversal<AnyType> {
 			root = root.getRight();
 		}
 	}
-	
+
 	/**
 	 * 非递归中序遍历
 	 * 首先移动到节点的左子树，完成遍历左子树之后，再将该元素出栈，然后找到其右子树进行遍历。持续该过程直到栈为空。
@@ -230,7 +230,7 @@ public class BinaryTreeTraversal<AnyType> {
 			root = root.getRight();
 		}
 	}
-	
+
 	/**
 	 * 非递归后序遍历
 	 * 完成遍历左子树之后，需要访问当前节点，之后遍历完成右子树还需要访问该当前节点。只有在第二次访问时才处理当前节点。
@@ -245,7 +245,7 @@ public class BinaryTreeTraversal<AnyType> {
 		}
 		// 创建栈存储节点
 		LinkedListStack<BinaryTreeNode<AnyType>> stack = new LinkedListStack<BinaryTreeNode<AnyType>>();
-		
+
 		// 遍历
 		while (true) {
 			if (root != null) {
@@ -268,7 +268,7 @@ public class BinaryTreeTraversal<AnyType> {
 						}
 					}
 				}
-				
+
 				if (!stack.isEmpty()) {
 					// 判断根节点左右子树是否遍历完
 					if (root == stack.top().getRight()) {
